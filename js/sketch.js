@@ -5,16 +5,16 @@ if ("geolocation" in navigator) {
   $('.js-geolocation').hide();
 }
 
-// location pull on button click
+// pull location w button
 $('.js-geolocation').on('click', function() {
   navigator.geolocation.getCurrentPosition(function(position) {
-    loadWeather(position.coords.latitude+','+position.coords.longitude); //load weather using your lat/lng coordinates
+    loadWeather(position.coords.latitude+','+position.coords.longitude);
   });
 });
 
 
 $(document).ready(function() {
-  loadWeather('Seattle',''); //@params location, woeid
+  loadWeather('','1062617'); //input location and/or woeid
 });
 
 function loadWeather(location, woeid) {
