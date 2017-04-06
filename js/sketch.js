@@ -39,12 +39,11 @@ function loadWeather(location, woeid) {
     unit: 'f',
     success: function(weather) {
       html = '<h2><i class="icon-'+weather.code+'"></i></h2>';
-      html += '<ul><li>'+weather.city+', '+weather.region+'</li>';
-      // html += '<li class="currently">'+weather.currently+'</li>';
+      html += '<ul><li><strong>'+weather.city+', '+weather.region+'</strong></li>';
       html += '<li>'+weather.temp+'&deg;F / '+weather.alt.temp+'&deg;C</li></ul>'; 
 
       //print current weather code (for testing purposes)
-      html += '<p>'+weather.code+'</p>'
+      html += '<p>this is for testing: '+weather.code+'</p>'
       // html += '<p>'+printWeather(weather.code+)'</p>'
       
       $("#weather").html(html);

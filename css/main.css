@@ -16,14 +16,6 @@ html {
     line-height: 1.4;
 }
 
-/*
- * Remove text-shadow in selection highlight:
- * https://twitter.com/miketaylr/status/12228805301
- *
- * These selection rule sets have to be separate.
- * Customize the background color to match your design.
- */
-
 ::-moz-selection {
     background: #b3d4fc;
     text-shadow: none;
@@ -34,9 +26,6 @@ html {
     text-shadow: none;
 }
 
-/*
- * A better looking default horizontal rule
- */
 
 hr {
     display: block;
@@ -100,21 +89,23 @@ textarea {
 }
 
 body {
+  width: 100%;
   font: 13px 'Open Sans', "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-  background: #f1f1f1;
+  background: #e8e8e8;
 }
 
 i {
-  color: #353535;
+  color: #fff;
   font-family: 'weather-font';
-  font-size: 350px;
+  font-size: 400px;
   font-weight: normal;
   font-style: normal;
-  line-height: 1.0;
+  line-height: 0.5;
+  text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.10);
 }
 
 #weather {
-  margin: 0px auto;
+  margin: 0;
   text-align: center;
 }
 
@@ -124,27 +115,24 @@ i {
   font-size: 150px;
   font-weight: 300;
   text-align: center;
-  text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.15);
 }
 
 #weather ul {
-  margin: 0;
+  margin-top: 85px;
   padding: 0;
 }
 
 #weather li {
-  margin: 20px;
-  /*padding: 15px;*/
+  margin: 10px;
   display: inline-block;
   border-radius: 3px;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 300;
-
+  text-align: center;
 }
 
 button {
-  display: block;
-  margin: 15px auto;
+  margin: auto;
   width: auto;
   padding: 9px;
   background: #fff;
@@ -152,8 +140,36 @@ button {
   border: 0;
   border-radius: 3px;
   font-size: 14px;
-  /*text-transform: uppercase;*/
   font-weight: 400;
+  text-align: center;
+}
+
+form {
+  display: inline-block;
+  margin: 15px auto;
+  width: auto;
+  padding: 9px;
+}
+
+input {
+  border: none;
+  margin: 15px auto;
+  width: auto;
+  padding: 9px;
+  color: #353535;
+  border-radius: 3px;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.location {
+  display: block;
+  margin: auto;
+}
+
+.center-block {
+  display: table;
+  margin: auto;
 }
 
 /* weather icons */
