@@ -108,7 +108,7 @@ body {
 i {
   color: #353535;
   font-family: 'weather-font';
-  font-size: 200px;
+  font-size: 250px;
   font-weight: normal;
   font-style: normal;
   line-height: 1.0;
@@ -120,7 +120,7 @@ i {
 }
 
 #weather h2 {
-  margin: 0 0 8px;
+  margin: 0 0 50px;
   color: #353535;
   font-size: 150px;
   font-weight: 300;
@@ -158,7 +158,7 @@ button {
   border: 0;
   border-radius: 3px;
   font-size: 14px;
-  text-transform: uppercase;
+  /*text-transform: uppercase;*/
   font-weight: 400;
 }
 
@@ -211,15 +211,6 @@ button {
 .icon-45:before { content: "S"; }
 .icon-46:before { content: "U"; }
 .icon-47:before { content: "S"; }
-
-
-
-
-
-
-
-
-
 
 
 
