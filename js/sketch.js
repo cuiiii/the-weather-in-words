@@ -1,22 +1,17 @@
 // using jquery plugin "simpleweather"
 
-// browser support
-if ("geolocation" in navigator) {
-  $('.js-geolocation').show(); 
+
+if("geolocation" in navigator) {
+  navigator.geolocation.getCurrentPosition(function(position) {
+    loadWeather(position.coords.latitude + ',' 
+      + position.coords.longitude);
+  });
 } else {
-  $('.js-geolocation').hide();
+  loadWeather("", "1062617");
 }
 
-// pull location w button
-$('.js-geolocation').on('click', function() {
-  navigator.geolocation.getCurrentPosition(function(position) {
-    loadWeather(position.coords.latitude+','+position.coords.longitude);
-  });
-});
-
-
 $(document).ready(function() {
-  loadWeather('','1062617'); //input location and/or woeid, default is Singapore
+  setInterval(getWeather, 10000);
 });
 
 function printWeather(code) {
@@ -38,7 +33,7 @@ function loadWeather(location, woeid) {
     woeid: woeid,
     unit: 'f',
     success: function(weather) {
-      html = '<h2><i class="icon-'+weather.code+'"></i></h2>';
+      html = '<div class="weather-icon"><i class="icon-'+weather.code+'"></i></div>';
       html += '<ul><li><strong>'+weather.city+', '+weather.region+'</strong></li>';
       html += '<li>'+weather.temp+'&deg;F / '+weather.alt.temp+'&deg;C</li></ul>'; 
 
