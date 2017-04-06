@@ -65,14 +65,13 @@ function loadWeather(location, woeid) {
         woeid: woeid,
         unit: 'f',
         success: function(weather) {
-            html = "<h2>"+weatherText[weather.code]+"</h2>";
-            html += '<div class="weather-icon"><i class="icon-' + weather.code + '"></i></div>';
-            html += '<ul><li><strong>' + weather.city + ', ' + weather.region + '</strong></li>';
-            html += '<li>' + weather.temp + '&deg;F / ' + weather.alt.temp + '&deg;C</li></ul>';
-            //print current weather code (for testing purposes)
-            html += '<p>this is for testing: ' + weather.code + '</p>'
-            // html += '<p>'+printWeather(weather.code+)'</p>'
-            $("#weather").html(html);
+          $(".weather-text").html(weatherText[weather.code]);
+          $(".weather-icon").html('<i class="icon-' + weather.code + '"></i>');
+          $(".weather-stats").html('<ul><li><strong>'+weather.city+', ' +weather.region+ '</strong></li>');
+          $(".weather-stats").append('<li>'+ weather.temp + '&deg;F / '+ weather.alt.temp +'&deg;C</li></ul>');
+          //   // html = '<ul><li><strong>' + weather.city + ', ' + weather.region + '</strong></li>';
+            // html += '<li>' + weather.temp + '&deg;F / ' + weather.alt.temp + '&deg;C</li></ul>';
+            // $("#weather").html(html);
         },
         error: function(error) {
             $("#weather").html('<p>' + error + '</p>');
