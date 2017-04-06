@@ -105,16 +105,31 @@ i {
 }
 
 .weather-icon {
-  margin-bottom: 70px;
   display: inline-block;
+  margin-left: 5%;
 }
 
 .weather-text {
+  margin-top: 2%;
   margin-left: 5%;
   margin-right: 5%;
   font-size: 90px;
-  line-height: 0.95em;
+  line-height: 1.1em;
+}
 
+.weather-stats ul {
+  display: inline-block;
+  margin-left: 5.5%;
+  padding: 0;
+}
+
+.weather-stats li {
+  margin: 10px;
+  display: inline-block;
+  border-radius: 3px;
+  font-size: 18px;
+  font-weight: 300;
+  text-align: center;
 }
 
 #weather {
@@ -126,21 +141,6 @@ i {
   margin: 0 0 50px;
   color: #353535;
   font-size: 150px;
-  font-weight: 300;
-  text-align: center;
-}
-
-.weather-stats ul {
-  display: inline-block;
-  margin-top: 50px;
-  padding: 0;
-}
-
-.weather-stats li {
-  margin: 10px;
-  display: inline-block;
-  border-radius: 3px;
-  font-size: 18px;
   font-weight: 300;
   text-align: center;
 }

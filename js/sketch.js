@@ -58,7 +58,6 @@ if ("geolocation" in navigator) {
     loadWeather("", "1062617");
 }
 
-
 function loadWeather(location, woeid) {
     $.simpleWeather({
         location: location,
@@ -69,9 +68,6 @@ function loadWeather(location, woeid) {
           $(".weather-icon").html('<i class="icon-' + weather.code + '"></i>');
           $(".weather-stats").html('<ul><li><strong>'+weather.city+', ' +weather.region+ '</strong></li>');
           $(".weather-stats").append('<li>'+ weather.temp + '&deg;F / '+ weather.alt.temp +'&deg;C</li></ul>');
-          //   // html = '<ul><li><strong>' + weather.city + ', ' + weather.region + '</strong></li>';
-            // html += '<li>' + weather.temp + '&deg;F / ' + weather.alt.temp + '&deg;C</li></ul>';
-            // $("#weather").html(html);
         },
         error: function(error) {
             $("#weather").html('<p>' + error + '</p>');
