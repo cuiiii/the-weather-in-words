@@ -90,14 +90,15 @@ textarea {
 
 body {
   width: 100%;
-  font: 13px 'Open Sans', "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-family: 'Open Sans', "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-size: 13px;
   background: #e8e8e8;
 }
 
 i {
   color: #fff;
   font-family: 'weather-font';
-  font-size: 200px;
+  font-size: 14rem;
   font-weight: normal;
   font-style: normal;
   line-height: 0.5;
@@ -106,14 +107,15 @@ i {
 
 .weather-icon {
   display: inline-block;
+  margin-top: 2.5%;
   margin-left: 5%;
 }
 
 .weather-text {
   margin-top: 2%;
-  margin-left: 5%;
+  margin-left: 6%;
   margin-right: 5%;
-  font-size: 90px;
+  font-size: 5rem;
   line-height: 1.1em;
 }
 
@@ -127,7 +129,7 @@ i {
   margin: 10px;
   display: inline-block;
   border-radius: 3px;
-  font-size: 18px;
+  font-size: 1.1rem;
   font-weight: 300;
   text-align: center;
 }
