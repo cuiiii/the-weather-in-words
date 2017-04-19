@@ -109,10 +109,11 @@ i {
   display: inline-block;
   margin-top: 2.5%;
   margin-left: 5%;
+  margin-bottom: 2.5%;
 }
 
 .weather-text {
-  margin-top: 2%;
+  margin-top: 1%;
   margin-left: 6%;
   margin-right: 5%;
   font-size: 5rem;
@@ -134,32 +135,6 @@ i {
   text-align: center;
 }
 
-#weather {
-  margin: 0;
-  text-align: center;
-}
-
-#weather h2 {
-  margin: 0 0 50px;
-  color: #353535;
-  font-size: 150px;
-  font-weight: 300;
-  text-align: center;
-}
-
-button {
-  margin: auto;
-  width: auto;
-  padding: 9px;
-  background: #fff;
-  color: #353535;
-  border: 0;
-  border-radius: 3px;
-  font-size: 14px;
-  font-weight: 400;
-  text-align: center;
-}
-
 form {
   display: inline-block;
   margin: 15px auto;
@@ -176,16 +151,6 @@ input {
   border-radius: 3px;
   font-size: 14px;
   font-weight: 400;
-}
-
-.location {
-  display: block;
-  margin: auto;
-}
-
-.center-block {
-  display: table;
-  margin: auto;
 }
 
 /* weather icons */

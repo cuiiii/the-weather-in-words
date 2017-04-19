@@ -32,11 +32,11 @@ var weatherText = [
   "Pale people rejoice! We've got some cloud covers today.",
   "Pale people rejoice! We've got some cloud covers today.",
   "This is perfect weather to talk about and ultimately still do absolutely nothing.",
-  "This is perfect weather to talk about and ultimately still do absolutely nothing.",
+  "It's so sunny my eyelids are sweating. Seriously. MY FUCKING EYELIDS ARE SWEATING.",
   "At least not having an office window means you'll never know how nice it is outside.",
   "At least not having an office window means you'll never know how nice it is outside.",
   "Hail is one of nature's way of saying 'Fuck you'.",
-  "It's so hot my eyelids are sweating. Seriously. MY FUCKING EYELIDS ARE SWEATING.",
+  "It's so sunny my eyelids are sweating. Seriously. MY FUCKING EYELIDS ARE SWEATING.",
   "I wish I borrowed a better umbrella today.",
   "I wish I borrowed a better umbrella today.",
   "I wish I borrowed a better umbrella today.",
@@ -55,7 +55,7 @@ if ("geolocation" in navigator) {
         loadWeather(position.coords.latitude + ',' + position.coords.longitude);
     });
 } else {
-    loadWeather("", "1062617");
+    $(".weather-text").html("Aw, geolocation isn't supported by this browser.");
 }
 
 function loadWeather(location, woeid) {
