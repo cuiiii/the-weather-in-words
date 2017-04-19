@@ -135,9 +135,10 @@ i {
   text-align: center;
 }
 
-form {
+.weather-input {
   display: inline-block;
-  margin: 15px auto;
+  margin-left: 5.2%;
+  margin-top: 10%;
   width: auto;
   padding: 9px;
 }
@@ -145,12 +146,21 @@ form {
 input {
   border: none;
   margin: 15px auto;
+  margin-right: 5px;
   width: auto;
   padding: 9px;
   color: #353535;
   border-radius: 3px;
-  font-size: 14px;
+  font-size: 0.8em;
   font-weight: 400;
+}
+
+button {
+  background-color: #fff;
+  color: #353535;
+  border: none;
+  padding: 9px;
+  font-size: 0.8em;
 }
 
 /* weather icons */

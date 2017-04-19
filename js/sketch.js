@@ -50,27 +50,95 @@ var weatherText = [
   "I'm always here if someone tries to bully you into doing something outdoors.",
 ];
 
-if ("geolocation" in navigator) {
-    navigator.geolocation.getCurrentPosition(function(position) {
-        loadWeather(position.coords.latitude + ',' + position.coords.longitude);
-    });
-} else {
-    $(".weather-text").html("Aw, geolocation isn't supported by this browser.");
-}
+// if ("geolocation" in navigator) {
+//     navigator.geolocation.getCurrentPosition(function(position) {
+//         loadWeather(position.coords.latitude + ',' + position.coords.longitude);
+//     });
+// } else {
+//     $(".weather-text").html("Aw, geolocation isn't supported by this browser.");
+// } 
 
-function loadWeather(location, woeid) {
-    $.simpleWeather({
-        location: location,
-        woeid: woeid,
-        unit: 'f',
-        success: function(weather) {
-          $(".weather-text").html(weatherText[weather.code]);
-          $(".weather-icon").html('<i class="icon-' + weather.code + '"></i>');
-          $(".weather-stats").html('<ul><li><strong>'+weather.city+', ' +weather.region+ '</strong></li>');
-          $(".weather-stats").append('<li>'+ weather.temp + '&deg;F / '+ weather.alt.temp +'&deg;C</li></ul>');
-        },
-        error: function(error) {
-            $("#weather").html('<p>' + error + '</p>');
-        }
+// function loadWeather(location, woeid) {
+//     $.simpleWeather({
+//         location: location,
+//         woeid: woeid,
+//         unit: 'f',
+//         success: function(weather) {
+//           $(".weather-text").html(weatherText[weather.code]);
+//           $(".weather-icon").html('<i class="icon-' + weather.code + '"></i>');
+//           $(".weather-stats").html('<ul><li><strong>'+weather.city+', ' +weather.region+ '</strong></li>');
+//           $(".weather-stats").append('<li>'+ weather.temp + '&deg;F / '+ weather.alt.temp +'&deg;C</li></ul>');
+//         },
+//         error: function(error) {
+//             $("#weather").html('<p>' + error + '</p>');
+//         }
+//     });
+// }
+
+// // var geocoder = new google.maps.Geocoder();;
+
+// // $('button').on('click', function(){
+// // var address = $('#address').val();
+
+// // geocoder.geocode( { 'address': address}, function(results, status) {
+
+// // if (status == google.maps.GeocoderStatus.OK) {
+// //     var latitude = results[0].geometry.location.lat();
+// //     var longitude = results[0].geometry.location.lng();
+// //     $('#coordinates').val(latitude+', '+longitude);
+// //  loadWeather(latitude + ',' + longitude);
+// //  document.write(latitude + ',' + longitude);
+// //     } 
+// // }); 
+// // });
+
+(function($){
+$(document).ready(function(){
+  if ("geolocation" in navigator) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+      loadWeather(position.coords.latitude + ',' + position.coords.longitude);
     });
-}
+  } else {
+    $(".weather-text").html("Aw, geolocation isn't supported by this browser.");
+  }
+
+  function loadWeather(location, woeid) {
+    $.simpleWeather({
+      location: location,
+      woeid: woeid,
+      unit: 'f',
+      success: function(weather) {
+      console.log(weather);
+        $(".weather-text").html(weatherText[weather.code]);
+        $(".weather-title").html(weather.title);
+        $(".weather-icon").html('<i class="icon-' + weather.code + '"></i>');
+        $(".weather-stats").html('<ul><li><strong>' + weather.city + ', ' + weather.region + '</strong></li>');
+        $(".weather-stats").append('<li>' + weather.temp + '&deg;F / ' + weather.alt.temp + '&deg;C</li></ul>');
+        $(".weather-input").html('<input id="address" type="text" placeholder="Enter City, State"/>');
+        $(".weather-input").append('<button type="submit">Submit</button>')
+      },
+      error: function(error) {
+        $("#weather").html('<p>' + error + '</p>');
+      }
+    });
+  }
+
+  var geocoder = new google.maps.Geocoder();
+
+  $('button').on('click', function() {
+    var address = $('#address').val();
+    geocoder.geocode({
+      'address': address
+    }, function(results, status) {
+
+      if (status == google.maps.GeocoderStatus.OK) {
+        var latitude = results[0].geometry.location.lat();
+        var longitude = results[0].geometry.location.lng();
+        console.log(latitude + ',' + longitude);
+        $('#coordinates').val(latitude + ', ' + longitude);
+        loadWeather(latitude + ',' + longitude);
+      }
+    });
+  });
+});
+})(jQuery);
