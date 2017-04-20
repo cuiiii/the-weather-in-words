@@ -98,9 +98,14 @@ $(document).ready(function(){
     navigator.geolocation.getCurrentPosition(function(position) {
       loadWeather(position.coords.latitude + ',' + position.coords.longitude);
     });
+    $(".weather-input").html('<input id="address" type="text" placeholder="Enter City, State"/>');
+        $(".weather-input").append('<button type="submit">Submit</button>');
   } else {
     $(".weather-text").html("Aw, geolocation isn't supported by this browser.");
+    $(".weather-input").html('<input id="address" type="text" placeholder="Enter City, State"/>');
+        $(".weather-input").append('<button type="submit">Submit</button>');
   }
+
 
   function loadWeather(location, woeid) {
     $.simpleWeather({
@@ -114,8 +119,6 @@ $(document).ready(function(){
         $(".weather-icon").html('<i class="icon-' + weather.code + '"></i>');
         $(".weather-stats").html('<ul><li><strong>' + weather.city + ', ' + weather.region + '</strong></li>');
         $(".weather-stats").append('<li>' + weather.temp + '&deg;F / ' + weather.alt.temp + '&deg;C</li></ul>');
-        $(".weather-input").html('<input id="address" type="text" placeholder="Enter City, State"/>');
-        $(".weather-input").append('<button type="submit">Submit</button>')
       },
       error: function(error) {
         $("#weather").html('<p>' + error + '</p>');
