@@ -8,6 +8,9 @@ var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var rename = require('gulp-rename');
 
+var connect = require('gulp-connect');
+
+
 // Lint Task
 gulp.task('lint', function() {
     return gulp.src('js/*.js')
@@ -20,6 +23,7 @@ gulp.task('sass', function() {
     return gulp.src('scss/*.scss')
         .pipe(sass())
         .pipe(gulp.dest('dist/css'));
+      stream: true
 });
 
 // Concatenate & Minify JS
@@ -38,5 +42,13 @@ gulp.task('watch', function() {
     gulp.watch('scss/*.scss', ['sass']);
 });
 
+// live reloading
+gulp.task('connect', function() {
+  connect.server({
+    root: '.',
+    livereload: true
+  })
+});
+
 // Default Task
-gulp.task('default', ['lint', 'sass', 'scripts', 'watch']);
+gulp.task('default', ['lint', 'sass', 'scripts', 'watch', 'webserver']);
