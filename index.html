@@ -15,17 +15,32 @@
 </head>
 
 <body>
-    <div class="container-fluid">
-        <div class="weather-icon"></div>
-        <div class="weather-stats"></div>
-        <div class="weather-text"></div>
-        <div class="weather-input"></div>
+    <div class="container d-flex">
+        <div class="row">
+            <div class="weather-icon"><i class="icon-1"></i></div>
+            <div class="weather-stats">'
+                <ul>
+                    <li><strong>Singapore, Singapore</strong></li>
+                    <li>90&deg;F / 34&deg;C</li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="weather-text col-md-10 col-lg-11">Sorry the weather is making it harder to justify tipping poorly on your GrubHub order.</div>
+        </div>
+        <div class="weather-input col-2">
+            <form>
+                <label for="address">Enter city</label><br>
+                <input id="address" class="d-flex" type="text" placeholder="e.g. Boston" />
+                <button class="btn d-flex" type="submit">Submit</button>
+            </form>
+    </div>
+    </div>
     </div>
     <!-- js libraries -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.simpleWeather/3.1.0/jquery.simpleWeather.min.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA1XVlvaW4diiFqq0ERRwrVI6Kmo5U9hXo"
-  type="text/javascript"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA1XVlvaW4diiFqq0ERRwrVI6Kmo5U9hXo" type="text/javascript"></script>
     <script src="js/sketch.js"></script>
     <!-- <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script> -->
 </body>

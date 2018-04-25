@@ -93,12 +93,13 @@ body {
   font-family: 'Open Sans', "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   font-size: 13px;
   background: #e8e8e8;
+  /*margin-top: 2%;*/
 }
 
 i {
   color: #fff;
   font-family: 'weather-font';
-  font-size: 14rem;
+  font-size: 13rem;
   font-weight: normal;
   font-style: normal;
   line-height: 0.5;
@@ -107,22 +108,17 @@ i {
 
 .weather-icon {
   display: inline-block;
-  margin-top: 2.5%;
-  margin-left: 5%;
-  margin-bottom: 2.5%;
+  margin-bottom: 3%;
 }
 
 .weather-text {
   margin-top: 1%;
-  margin-left: 6%;
-  margin-right: 5%;
-  font-size: 5rem;
-  line-height: 1.1em;
+  font-size: 4.2rem;
+  line-height: 1.2em;
 }
 
 .weather-stats ul {
   display: inline-block;
-  margin-left: 5.5%;
   padding: 0;
 }
 
@@ -136,31 +132,26 @@ i {
 }
 
 .weather-input {
-  display: inline-block;
-  margin-left: 5.2%;
-  margin-top: 10%;
-  width: auto;
-  padding: 9px;
+  margin-top: 5%;
+
 }
 
 input {
   border: none;
-  margin: 15px auto;
-  margin-right: 5px;
-  width: auto;
   padding: 9px;
   color: #353535;
   border-radius: 3px;
-  font-size: 0.8em;
   font-weight: 400;
+  max-width: 25%; 
 }
 
 button {
-  background-color: #fff;
+  background-color: #fcfcfc;
   color: #353535;
   border: none;
-  padding: 9px;
-  font-size: 0.8em;
+  margin-left: 1%;
+  padding: 2%;
+  border-radius: 3px;
 }
 
 /* weather icons */
@@ -212,6 +203,34 @@ button {
 .icon-45:before { content: "S"; }
 .icon-46:before { content: "U"; }
 .icon-47:before { content: "S"; }
+
+@media screen and (max-width: 768px) {
+
+
+.weather-text {
+  margin-top: 1%;
+  font-size: 4rem;
+  line-height: 1.1em;
+}
+
+.weather-input {
+  margin-top: 12%;
+}
+  }
+
+@media screen and (max-width: 500px) {
+
+
+.weather-text {
+  margin-top: 1%;
+  font-size: 3rem;
+  line-height: 1.1em;
+}
+
+.weather-input {
+  margin-top: 12%;
+}
+}
 
 
 

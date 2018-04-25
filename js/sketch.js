@@ -50,94 +50,114 @@ var weatherText = [
     "I'm always here if someone tries to bully you into doing something outdoors.",
 ];
 
+// function loadWeather(location, woeid) {
+//         $.simpleWeather({
+//             location: 'singapore',
+//             woeid:  1062617,
+//             unit: 'f',
+//             success: function(weather) {
+//                 console.log(weather);
+//                 $(".weather-text").html(weatherText[weather.code]);
+//                 $(".weather-title").html(weather.title);
+//                 $(".weather-icon").html('<i class="icon-' + weather.code + '"></i>');
+//                 $(".weather-stats").html('<ul><li><strong>' + weather.city + ', ' + weather.region + '</strong></li>'
+//                   + '<li>' + weather.temp + '&deg;F / ' + weather.alt.temp + '&deg;C</li></ul>');
+//                 $(".weather-input").html('<input id="address" type="text" placeholder="Enter City, State"/>'
+//                   +'<button type="submit">Submit</button>');
+//             },
+//             error: function(error) {
+//                 $("#weather-text").html('<p>Oops, something went wrong. Try again!</p>');
+//             }
+//         });
+//     }
 
-$(function() {
+// $(function() {
 
-    navigator.geolocation.getCurrentPosition(success, error);
+//     navigator.geolocation.getCurrentPosition(success, error);
 
-    function success(position) {
-        latitude = position.coords.latitude;
-        longitude = position.coords.longitude;
-        loadWeather(position.coords.latitude + ',' + position.coords.longitude);
-    }
+//     function success(position) {
+//         latitude = position.coords.latitude;
+//         longitude = position.coords.longitude;
+//         loadWeather(position.coords.latitude + ',' + position.coords.longitude);
+//     }
 
-    function error() {
-        $(".weather-text").html("Aw, geolocation isn't supported by this browser.");
-        $(".weather-input").html('<input id="address" type="text" placeholder="Enter City, State"/>');
-        $(".weather-input").append('<button type="submit">Submit</button>');
-    }
+//     function error() {
+//         $(".weather-text").html("Aw, geolocation isn't supported by this browser.");
+//         $(".weather-input").html('<input id="address" type="text" placeholder="Enter City, State"/>');
+//         $(".weather-input").append('<button type="submit">Submit</button>');
+//     }
 
-    function loadWeather(location, woeid) {
-        $.simpleWeather({
-            location: location,
-            woeid: woeid,
-            unit: 'f',
-            success: function(weather) {
-                console.log(weather);
-                $(".weather-text").html(weatherText[weather.code]);
-                $(".weather-title").html(weather.title);
-                $(".weather-icon").html('<i class="icon-' + weather.code + '"></i>');
-                $(".weather-stats").html('<ul><li><strong>' + weather.city + ', ' + weather.region + '</strong></li>'
-                  + '<li>' + weather.temp + '&deg;F / ' + weather.alt.temp + '&deg;C</li></ul>');
-                $(".weather-input").html('<input id="address" type="text" placeholder="Enter City, State"/>'
-                  +'<button type="submit">Submit</button>');
-            },
-            error: function(error) {
-                $("#weather-text").html('<p>Oops, something went wrong. Try again!</p>');
-            }
-        });
-    }
+//     function loadWeather(location, woeid) {
+//         $.simpleWeather({
+//             location: location,
+//             woeid: woeid,
+//             unit: 'f',
+//             success: function(weather) {
+//                 console.log(weather);
+//                 $(".weather-text").html(weatherText[weather.code]);
+//                 $(".weather-title").html(weather.title);
+//                 $(".weather-icon").html('<i class="icon-' + weather.code + '"></i>');
+//                 $(".weather-stats").html('<ul><li><strong>' + weather.city + ', ' + weather.region + '</strong></li>'
+//                   + '<li>' + weather.temp + '&deg;F / ' + weather.alt.temp + '&deg;C</li></ul>');
+//                 $(".weather-input").html('<input id="address" type="text" placeholder="Enter City, State"/>'
+//                   +'<button type="submit">Submit</button>');
+//             },
+//             error: function(error) {
+//                 $("#weather-text").html('<p>Oops, something went wrong. Try again!</p>');
+//             }
+//         });
+//     }
 
-    var geocoder = new google.maps.Geocoder();
+//     var geocoder = new google.maps.Geocoder();
 
-    $('button').on('click', function() {
-        var address = $('#address').val();
-        geocoder.geocode({
-            'address': address
-        }, function(results, status) {
+//     $('button').on('click', function() {
+//         var address = $('#address').val();
+//         geocoder.geocode({
+//             'address': address
+//         }, function(results, status) {
 
-            if (status == google.maps.GeocoderStatus.OK) {
-                var latitude = results[0].geometry.location.lat();
-                var longitude = results[0].geometry.location.lng();
-                console.log(latitude + ',' + longitude);
-                $('#coordinates').val(latitude + ', ' + longitude);
-                loadWeather(latitude + ',' + longitude);
-            }
-        });
-    });
+//             if (status == google.maps.GeocoderStatus.OK) {
+//                 var latitude = results[0].geometry.location.lat();
+//                 var longitude = results[0].geometry.location.lng();
+//                 console.log(latitude + ',' + longitude);
+//                 $('#coordinates').val(latitude + ', ' + longitude);
+//                 loadWeather(latitude + ',' + longitude);
+//             }
+//         });
+//     });
 
-    // //Auto complete script
-    // function insertGoogleScript() {
-    //     var google_api = document.createElement('script'),
-    //         api_key = 'AIzaSyA1XVlvaW4diiFqq0ERRwrVI6Kmo5U9hXo';
+//     // //Auto complete script
+//     // function insertGoogleScript() {
+//     //     var google_api = document.createElement('script'),
+//     //         api_key = 'AIzaSyA1XVlvaW4diiFqq0ERRwrVI6Kmo5U9hXo';
 
-    //     // Inject the script for Google's API and reference the initGoogleAPI
-    //     // function as a callback.
-    //     google_api.src = 'https://maps.googleapis.com/maps/api/js?key=' + api_key + '&callback=initGoogleAPI&libraries=places,geometry';
-    //     document.body.appendChild(google_api);
-    // }
+//     //     // Inject the script for Google's API and reference the initGoogleAPI
+//     //     // function as a callback.
+//     //     google_api.src = 'https://maps.googleapis.com/maps/api/js?key=' + api_key + '&callback=initGoogleAPI&libraries=places,geometry';
+//     //     document.body.appendChild(google_api);
+//     // }
 
 
-    // // SearchBox Method
-    // function initGoogleAPI() {
-    //     var autocomplete = new google.maps.places.SearchBox(document.querySelector("#city-search"));
+//     // // SearchBox Method
+//     // function initGoogleAPI() {
+//     //     var autocomplete = new google.maps.places.SearchBox(document.querySelector("#city-search"));
 
-    //     autocomplete.addListener('places_changed', function() {
-    //         var place = autocomplete.getPlaces()[0];
-    //         document.querySelector("#latitude").value = place.geometry.location.lat();
-    //         document.querySelector("#longitude").value = place.geometry.location.lng();
-    //     });
-    // }
+//     //     autocomplete.addListener('places_changed', function() {
+//     //         var place = autocomplete.getPlaces()[0];
+//     //         document.querySelector("#latitude").value = place.geometry.location.lat();
+//     //         document.querySelector("#longitude").value = place.geometry.location.lng();
+//     //     });
+//     // }
 
-    // insertGoogleScript();
+//     // insertGoogleScript();
 
-    // $('button').on('click', function() {
-    //     var lat = $('#latitude').val(),
-    //         long = $('#longitude').val(),
-    //         city_name = $('#address').val()
-    //     $('.form').fadeOut(100, function() {
-    //         weather();
-    //         $('.screen').text('<button id="back">New Forecast</button><h3 class="city">' + city_name + '</h3><ul class="list-reset fadein-stagger" id="forecast"></ul>');
-    //     });
-    // });
-});
+//     // $('button').on('click', function() {
+//     //     var lat = $('#latitude').val(),
+//     //         long = $('#longitude').val(),
+//     //         city_name = $('#address').val()
+//     //     $('.form').fadeOut(100, function() {
+//     //         weather();
+//     //         $('.screen').text('<button id="back">New Forecast</button><h3 class="city">' + city_name + '</h3><ul class="list-reset fadein-stagger" id="forecast"></ul>');
+//     //     });
+//     // });
+// });
