@@ -79,7 +79,6 @@ $(function() {
                 $(".weather-icon").html('<i class="icon-' + weather.code + '"></i>');
                 $(".weather-stats").html('<ul><li><strong>' + weather.city + ', ' + weather.region + '</strong></li>'
                   + '<li>' + weather.temp + '&deg;F / ' + weather.alt.temp + '&deg;C</li></ul>');
-                $(".weather-text").html("Aw, geolocation isn't supported by this browser.");
                 $(".weather-input").html('<input id="address" type="text" placeholder="Enter City, State"/>'
                   +'<button type="submit">Submit</button>');
             },
