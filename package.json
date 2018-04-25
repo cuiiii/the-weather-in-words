@@ -28,6 +28,7 @@
     "jshint": "^2.9.5"
   },
   "dependencies": {
+    "darkskyjs": "^0.2.0",
     "gulp-livereload": "^3.8.1"
   }
 }
